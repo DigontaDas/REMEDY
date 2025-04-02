@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header {
+    background-color: #000000;
+    padding: 10px 20px;
+    color: white;
+}
+
+.header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 40px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-info .username {
+    margin-right: 825px;
+    font-size: 30px;
+    color: #ff0000;
+}
+
+.user-info .profile-pic img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+.form-container {
+    width: 400px;
+    padding: 40px;
+    background-color: white;
+    box-shadow: 0 0 10px rgb(255, 0, 0);
+    border-radius: 8px;
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: bolder;
+    font-size: 30px;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    font-size: 10px;
+    border: 1px solid #000000;
+    box-shadow: 0 0 10px rgb(55, 0, 255);
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-container button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background-color: #ff0000;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+    
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.form-container form button:hover {
+    background-color: #0415ff;
+}

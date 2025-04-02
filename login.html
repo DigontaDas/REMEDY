@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="Images/Remedy_logo.png" alt="Logo">
+        </div>
+        <div class="user-info">
+            <img src="Images/bell.png" alt="Notifications" class="icon">
+            <img src="Images/default.png" alt="User Profile" class="profile-pic">
+        </div>
+    </header>
+    <main>
+        <div class="profile-container">
+            <h2>Log into your Account</h2>
+            <form id="login-form" action="http://localhost:3000/login" method="POST" >
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </main>
+    <script>
+      document.getElementById('login-form').addEventListener('submit', async function(event) {
+          event.preventDefault();
+  
+          const email = document.getElementById('email').value;
+  
+          try {
+              const response = await fetch('/login', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ email })
+              });
+  
+              const result = await response.json();
+  
+              if (response.ok) {
+                  if (result.role === 'patient') {
+                      window.location.href = '/med3';  // Redirect to med3.html for patients
+                  } else if (result.role === 'doctor') {
+                      window.location.href = '/med4';  // Redirect to med4.html for doctors
+                  }
+              } else {
+                  alert(result.message);
+              }
+          } catch (error) {
+              console.error('Error during login:', error);
+              alert('An error occurred. Please try again.');
+          }
+      });
+  </script>
+  
+</body>
+</html>

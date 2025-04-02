@@ -1,0 +1,139 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007BFF; /* Blue color */
+    padding: 10px 20px;
+    color: white; /* White text color for contrast */
+}
+
+.logo img {
+    height: 50px;
+}
+
+.search-bar input {
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    width: 200px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-info .icon {
+    height: 24px;
+}
+
+.profile-pic {
+    height: 40px;
+    border-radius: 50%;
+}
+
+
+
+.donor-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.donor-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.donor-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.donor-container form label {
+    font-weight: bold;
+}
+
+.donor-container form input,
+.donor-container form select,
+.donor-container form textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.donor-container form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.donor-container form button:hover {
+    background-color: #0056b3;
+}
+
+.profile-pic-container {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.profile-pic-container img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 10px auto;
+}
+
+.profile-pic-container input[type="file"] {
+    display: none;
+}
+
+.profile-pic-container .upload-button {
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.eligibility-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.eligibility-container .eligibility-button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.eligibility-container .eligibility-button:hover {
+    background-color: #0056b3;
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remedy</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <link rel="stylesheet" href="doctor_profile.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./Images/Remedy_logo.png" alt="Logo">
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for medicines...">
+            <button>Search</button>
+        </div>
+        <div class="user-info">
+            <img src="./Images/bell.png" alt="Notifications" class="icon">
+            <span class="username">Hello, User</span>
+            <div class="profile-pic">
+                <img src="./Images/default.png" alt="User Profile" id="profile-pic">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="profile-container">
+            <h2>Doctor Profile</h2>
+            <div id="message" style="color: green; font-weight: bold;"></div>
+            <form id="doctor-profile-form" action="http://localhost:3000/submit-doctor-profile" method="POST" >
+                <!-- <div class="profile-pic-container">
+                    <img id="profile-pic" src="./Images/default.png" alt="Profile Picture">
+                    <label for="profile-pic-input" class="upload-button">Change photo</label>
+                    <input type="file" id="profile-pic-input" name="profile-pic" accept="image/*">
+                </div> -->
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="firstName" required>
+                
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="lastName" required>
+                
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="degrees">Degrees</label>
+                <input type="text" id="degrees" name="degrees" required>
+                
+                <label for="hospitals">Hospitals</label>
+                <input type="text" id="hospitals" name="hospitals" required>
+                
+                <label for="fee">Doctor's Fee</label>
+                <input type="number" id="fee" name="fee" required>
+                
+                <label for="specialization">Specialization</label>
+                <input type="text" id="specialization" name="specialization" required>
+                
+                <label for="phone-number">Phone Number</label>
+                <input type="tel" id="phone-number" name="phoneNumber" required>
+                
+                <label for="experience">Years of Experience</label>
+                <textarea id="experience" name="experience" required></textarea>
+                
+                <label for="license-number">License Number</label>
+                <input type="text" id="license-number" name="licenseNumber" required>
+                
+                <button type="submit">Save Profile</button>
+            </form>
+            <p id="message"></p>
+        </div>
+    </main>
+    <script>    
+        document.getElementById('doctor-profile-form').addEventListener('submit', async function (event) {
+          event.preventDefault();
+          const formData = new URLSearchParams(new FormData(this));
+
+          try {
+              const response = await fetch('/submit-doctor-profile', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                  body: formData,
+              });
+
+              const result = await response.json();
+              const messageElement = document.getElementById('message');
+
+              if (response.ok) {
+                  messageElement.textContent = result.message;
+                  messageElement.style.color = 'green';
+                  setTimeout(() => {
+                      window.location.href = '/med4';
+                  }, 1000);
+              } else {
+                  messageElement.textContent = `Error: ${result.message}`;
+                  messageElement.style.color = 'red';
+              }
+          } catch (error) {
+              console.error('Error during form submission:', error);
+              document.getElementById('message').textContent = `Error: ${error.message}`;
+              document.getElementById('message').style.color = 'red';
+          }
+      });
+    </script>
+</body>
+</html>

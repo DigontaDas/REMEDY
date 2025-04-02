@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <title>Remedy</title>
+</head>
+<body>
+    <header class="p-2 bg-blue-500">
+        <div class="navbar  bg-blue-500 text-white">  
+            
+            <div class="navbar-start">
+              <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M4 6h16M4 12h8m-8 6h16" />
+                  </svg>
+                </div>
+                
+                <ul
+                  tabindex="0"
+                  class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                  <li><a href="./med4.html">Home</a></li>
+                  <li><a href="https://meet.google.com/bph-kjqf-bkf">Contact</a></li>
+                </ul>
+              </div>
+              <a class="btn btn-ghost text-xl h-20 mb-3"><img src="images/Remedy_logo.png" alt="" class="w-20"></a>
+            </div>
+            <div class="navbar-center hidden lg:flex">
+              <ul class="menu menu-horizontal px-1">
+                <li><a href="./med4.html">Home</a></li>
+                <li><a href="https://meet.google.com/bph-kjqf-bkf" >Contact</a></li>
+              </ul>
+            </div>
+            <div class="navbar-end flex gap-8 ">
+                
+                <div class="search-bar">
+                    <input type="text" placeholder="Search for medicines..." >
+                    <button >Search</button>
+                </div>
+                <div class="drawer drawer-end justify-end">
+                    <input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
+                    <div class="drawer-content">
+                    <!-- Page content here -->
+                    <label for="my-drawer-4" class="">
+                        <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+                            <div class="w-12 rounded-full">
+                            <img
+                                alt="Tailwind CSS Navbar component"
+                                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                            </div>
+                        </div>
+                    </label>
+                    </div>
+                    <div class="drawer-side ">
+                    <label for="my-drawer-4" aria-label="close sidebar" class="drawer-overlay"></label>
+                    <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4 gap-4">
+                        <!-- Sidebar content here -->
+                        <li>
+                            <div class="flex justify-between">
+                                <div class="avatar">
+                                    <div class="ring-primary ring-offset-base-100 w-16 rounded-full ring ring-offset-2">
+                                    <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a href="" class='font-bold' id="profile-pic">Your Profile</a></li>
+                        <li><a href="https://meet.google.com/bph-kjqf-bkf" class='font-bold'>Contact</a></li>
+                        <li><a href="/pres" class='font-bold'>Writing Prescription</a></li>
+                        <ul >
+                            <li>
+                            <!-- Open the modal using ID.showModal() method -->
+                            <button class="btn bg-red-600 text-white" id="signout-button">Sign Out</button>
+                            <dialog id="signout-modal" class="modal">
+                                <div class="modal-box">
+                                    <h3 class="text-lg font-bold">Are You Sure??</h3>
+                                    <p class="py-4">Press ESC key if you don't want to sign out.</p>
+                                    <div class="flex gap-4">
+                                        <button class="btn btn-outline btn-accent" id="confirm-signout">Yes</button>
+                                        <button class="btn" id="cancel-signout">No</button>
+                                    </div>
+                                </div>
+                                <form method="dialog" class="modal-backdrop">
+                                    <button>close</button>
+                                    </form>
+                                </dialog>
+                            </li>
+                        </ul>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="border" id="Tofajjol">
+            <!-- prescription side  -->
+            <div class="mt-5">
+                <div class="text-center text-2xl font-bold">
+                    Prescription
+                </div>
+                <div class=" flex justify-between px-16 py-2">
+                    <div>
+                        <img src="Images/Remedy_logo.png" class="w-16 ml-8" alt="">
+                        <p class="font-bold">A way of solution</p>
+                    </div>
+                </div>
+            <form id="prescriptionForm" action="http://localhost:3000/save-prescription" method="POST">
+                <div class=" border flex justify-between px-5 ">
+                    <p class="text-xl">Name: <input type="text" name="name" placeholder="Name of the Patient"></p>
+                    <p class="text-xl">Date: <input type="date" name="date"></p> 
+                </div>
+                <div class="border">
+                    <img src="Images/vecteezy_medical-symbol-rx-signage-template_9012556-removebg-preview.png" alt="" class="w-16 ml-16">
+                    <textarea name="directions" placeholder="Write down directions and medicines" class="w-full h-60 text-center"></textarea>
+                </div>
+                <div>
+                    <div class="flex justify-between px-2">
+                        <div class="flex justify-between">
+                            <div class="font-bold">
+                                <p class="ml-32 mt-6">Next round up: <input type="date" name="next_round"></p>
+                            </div>
+                        </div>
+                        <textarea name="special_notes" class="w-1/2 h-20 border" placeholder="Special Note"></textarea>
+                    </div>
+                </div>
+        </div>
+        <div class="flex justify-between p-4">
+            <div>
+                    <!-- Open the modal using ID.showModal() method -->
+                    <a class="link link-hover" onclick="my_modal_5.showModal()">Warnings!</a>
+                    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+                    <div class="modal-box">
+                        <h3 class="text-lg font-bold">Reminder Warnings!</h3>
+                        <p class="py-4">1. Never use overdose of a perticular medicine</p>
+                        <p class="py-4">2. Eat your medicine regularly and intime</p>
+                        <p class="py-4">3. Try to communicate with your doctor if needed on chat</p>
+                        <div class="modal-action">
+                        <form method="dialog">
+                            <!-- if there is a button in form, it will close the modal -->
+                            <button class="btn">Close</button>
+    
+                    </div>
+                </div>
+                </dialog> 
+            </div>
+            <div>
+                <button type="submit" class="btn btn-outline btn-info font-bold ml-20">Save the Prescription</button>
+            </div>
+            <!-- <div>
+                <button type="button" class="btn btn-outline btn-success download-btn">
+                    <svg viewBox="0 0 24 24" class="w-5" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M1 22C1 21.4477 1.44772 21 2 21H22C22.5523 21 23 21.4477 23 22C23 22.5523 22.5523 23 22 23H2C1.44772 23 1 22.5523 1 22Z" fill="#0F0F0F"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M18.3056 1.87868C17.1341 0.707107 15.2346 0.707107 14.063 1.87868L3.38904 12.5526C2.9856 12.9561 2.70557 13.4662 2.5818 14.0232L2.04903 16.4206C1.73147 17.8496 3.00627 19.1244 4.43526 18.8069L6.83272 18.2741C7.38969 18.1503 7.89981 17.8703 8.30325 17.4669L18.9772 6.79289C20.1488 5.62132 20.1488 3.72183 18.9772 2.55025L18.3056 1.87868ZM15.4772 3.29289C15.8677 2.90237 16.5009 2.90237 16.8914 3.29289L17.563 3.96447C17.9535 4.35499 17.9535 4.98816 17.563 5.37868L15.6414 7.30026L13.5556 5.21448L15.4772 3.29289ZM12.1414 6.62869L4.80325 13.9669C4.66877 14.1013 4.57543 14.2714 4.53417 14.457L4.0014 16.8545L6.39886 16.3217C6.58452 16.2805 6.75456 16.1871 6.88904 16.0526L14.2272 8.71448L12.1414 6.62869Z" fill="#0F0F0F"></path> </g></svg>
+                    Edit the file</button>
+            </div> -->
+        </div>
+      
+    </form>
+    </main>
+<script>
+        document.addEventListener("DOMContentLoaded",()=>{
+            const profile=document.getElementById("");
+            const appointment=document.getElementById("");
+            const blood_doner=document.getElementById("");
+            const prescription=document.getElementById("");
+        })
+        document.getElementById("download-btn").addEventListener("click", function () {
+          var element = document.getElementById("Tofajjol");
+          html2pdf()
+            .from(element)
+            .set({
+              margin: 1,
+              filename: 'downloaded-content.pdf',
+              html2canvas: { scale: 2 },
+              jsPDF: { orientation: 'portrait' }
+            })
+            .save();
+        });
+</script>  
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <title>Remedy</title>
+    <link rel="stylesheet" href="doctor_profile.css">
+</head>
+<body>
+    <header class="p-2 bg-blue-500">
+        <div class="navbar  bg-blue-500 text-white">  
+            
+            <div class="navbar-start">
+              <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M4 6h16M4 12h8m-8 6h16" />
+                  </svg>
+                </div>
+                
+                <ul
+                  tabindex="0"
+                  class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                  <li><a href="./med4.html">Home</a></li>
+
+                </ul>
+              </div>
+              <a class="btn btn-ghost text-xl h-20 mb-3"><img src="images/Remedy_logo.png" alt="" class="w-20"></a>
+            </div>
+            <div class="navbar-center hidden lg:flex">
+              <ul class="menu menu-horizontal px-1">
+                <li><a href="./med4.html">Home</a></li>
+              </ul>
+            </div>
+            <div class="navbar-end flex gap-8 ">
+                
+                <div class="search-bar">
+                    <input type="text" placeholder="Search for medicines..." >
+                    <button >Search</button>
+                </div>
+                <div class="drawer drawer-end justify-end">
+                    <input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
+                    <div class="drawer-content">
+                    <!-- Page content here -->
+                    <label for="my-drawer-4" class="">
+                        <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+                            <div class="w-12 rounded-full">
+                            <img
+                                alt="Tailwind CSS Navbar component"
+                                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                            </div>
+                        </div>
+                    </label>
+                    </div>
+                    <div class="drawer-side ">
+                    <label for="my-drawer-4" aria-label="close sidebar" class="drawer-overlay"></label>
+                    <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4 gap-4">
+                        <!-- Sidebar content here -->
+                        <li>
+                            <div class="flex justify-between">
+                                <div class="avatar">
+                                    <div class="ring-primary ring-offset-base-100 w-16 rounded-full ring ring-offset-2">
+                                    <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a href="" class='font-bold' id="profile-pic">Your Profile</a></li>
+                        <li><a href="https://meet.google.com/bph-kjqf-bkf" class='font-bold'>Contact</a></li>
+                        <li><a href="/pres" class='font-bold'>Writing Prescription</a></li>
+                        <ul >
+                            <li>
+                            <!-- Open the modal using ID.showModal() method -->
+                            <button class="btn bg-red-600 text-white" id="signout-button">Sign Out</button>
+                            <dialog id="signout-modal" class="modal">
+                                <div class="modal-box">
+                                    <h3 class="text-lg font-bold">Are You Sure??</h3>
+                                    <p class="py-4">Press ESC key if you don't want to sign out.</p>
+                                    <div class="flex gap-4">
+                                        <button class="btn btn-outline btn-accent" id="confirm-signout">Yes</button>
+                                        <button class="btn" id="cancel-signout">No</button>
+                                    </div>
+                                </div>
+                                <form method="dialog" class="modal-backdrop">
+                                    <button>close</button>
+                                    </form>
+                                </dialog>
+                            </li>
+                        </ul>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="profile-container">
+            <h2>Edit Doctor Profile</h2>
+            <form id="edit-doctor-profile-form">
+                <label for="first-name">First Name</label>
+                <input type="text" id="edit-first-name" name="firstName">
+              
+                <label for="last-name">Last Name</label>
+                <input type="text" id="edit-last-name" name="lastName">
+              
+                <label for="email">Email</label>
+                <input type="email" id="edit-email" name="email">
+              
+                <label for="degrees">Degrees</label>
+                <input type="text" id="edit-degrees" name="degrees">
+              
+                <label for="hospitals">Hospitals</label>
+                <input type="text" id="edit-hospitals" name="hospitals">
+              
+                <label for="fee">Fee</label>
+                <input type="number" id="edit-fee" name="fee">
+              
+                <label for="specialization">Specialization</label>
+                <input type="text" id="edit-specialization" name="specialization">
+              
+                <label for="phone-number">Phone Number</label>
+                <input type="tel" id="edit-phone-number" name="phoneNumber">
+              
+                <label for="experience">Experience</label>
+                <textarea id="edit-experience" name="experience"></textarea>
+              
+                <label for="license-number">License Number</label>
+                <input type="text" id="edit-license-number" name="licenseNumber">
+              
+                <button type="submit">Save Changes</button>
+                <button type="button" id="delete-doctor-btn">Delete Profile</button>
+            </form>
+            <p id="edit-message"></p>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            try {
+                const response = await fetch('/api/doctor');
+                if (!response.ok) throw new Error('Failed to fetch doctor data');
+
+                const doctor = await response.json();
+
+                document.getElementById('edit-first-name').value = doctor.first_name || '';
+                document.getElementById('edit-last-name').value = doctor.last_name || '';
+                document.getElementById('edit-email').value = doctor.email || '';
+                document.getElementById('edit-degrees').value = doctor.degrees || '';
+                document.getElementById('edit-hospitals').value = doctor.hospitals || '';
+                document.getElementById('edit-fee').value = doctor.fee || '';
+                document.getElementById('edit-specialization').value = doctor.specialization || '';
+                document.getElementById('edit-phone-number').value = doctor.phone_number || '';
+                document.getElementById('edit-experience').value = doctor.experience || '';
+                document.getElementById('edit-license-number').value = doctor.license_number || '';
+            } catch (error) {
+                console.error('Error loading doctor data:', error);
+            }
+        });
+
+        document.getElementById('edit-doctor-profile-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const formData = new URLSearchParams(new FormData(this));
+
+            try {
+                const response = await fetch('/api/doctor', {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: formData,
+                });
+
+                const result = await response.json();
+                const messageElement = document.getElementById('edit-message');
+
+                if (response.ok) {
+                    messageElement.textContent = result.message;
+                    messageElement.style.color = 'green';
+                    setTimeout(() => {
+                        window.location.href = '/med'; 
+                    }, 1000);
+                } else {
+                    messageElement.textContent = `Error: ${result.message}`;
+                    messageElement.style.color = 'red';
+                }
+            } catch (error) {
+                console.error('Error during form update:', error);
+                document.getElementById('edit-message').textContent = `Error: ${error.message}`;
+                document.getElementById('edit-message').style.color = 'red';
+            }
+        });
+
+        document.getElementById('delete-doctor-btn').addEventListener('click', async function() {
+            if (confirm('Are you sure you want to delete your profile?')) {
+                try {
+                    const response = await fetch('/api/doctor', {
+                        method: 'DELETE',
+                        headers: { 'Content-Type': 'application/json' },
+                    });
+
+                    const result = await response.json();
+                    const messageElement = document.getElementById('edit-message');
+
+                    if (response.ok) {
+                        messageElement.textContent = result.message;
+                        messageElement.style.color = 'green';
+                        setTimeout(() => {
+                            window.location.href = '/front'; 
+                        }, 1000);
+                    } else {
+                        messageElement.textContent = `Error: ${result.message}`;
+                        messageElement.style.color = 'red';
+                    }
+                } catch (error) {
+                    console.error('Error during profile deletion:', error);
+                    document.getElementById('edit-message').textContent = `Error: ${error.message}`;
+                    document.getElementById('edit-message').style.color = 'red';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
